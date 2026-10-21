@@ -1,0 +1,13 @@
+ranker:
+  embedding_dim: 64
+  hidden_dims: [256, 128, 64]
+  attention_dim: 64
+  batch_size: 512
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  epochs: 10
+  max_history_length: 50
+  negative_samples: 4
+  patience: 3
+  num_workers: 4
+  checkpoint: checkpoints/din.pt

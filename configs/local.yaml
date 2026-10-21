@@ -1,0 +1,41 @@
+data_root: ./data/sample
+artifact_root: ./artifacts
+device: cpu
+seed: 42
+
+data:
+  raw_interactions: raw/interactions.jsonl
+  raw_items: raw/items.jsonl
+  processed_dir: processed
+  history_file: train.parquet
+  min_user_interactions: 2
+  min_item_interactions: 2
+  columns:
+    user_id: user_id
+    item_id: item_id
+    timestamp: timestamp
+    label: label
+    title: title
+    category: category
+    price: price
+    description: description
+
+llm:
+  enabled: false
+  base_url: http://127.0.0.1:8000/v1
+  api_key: EMPTY
+  model: your-chat-model
+  timeout_seconds: 60
+
+embedding:
+  provider: sentence_transformers
+  model_name_or_path: sentence-transformers/all-MiniLM-L6-v2
+  base_url: http://127.0.0.1:8001/v1
+  api_key: EMPTY
+  batch_size: 128
+  normalize: true
+
+api:
+  host: 0.0.0.0
+  port: 8080
+  allow_degraded_startup: true

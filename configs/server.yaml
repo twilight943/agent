@@ -1,0 +1,45 @@
+data_root: ${AGENTREC_DATA_ROOT:-./dataset}
+artifact_root: ${AGENTREC_ARTIFACT_ROOT:-/artifacts/agentrec}
+device: ${AGENTREC_DEVICE:-cuda}
+seed: 42
+
+data:
+  raw_interactions: All_Beauty.jsonl
+  raw_items: meta_All_Beauty.jsonl
+  processed_dir: processed
+  history_file: train.parquet  # 在线服务可改为实时导出的历史交互文件
+  min_user_interactions: 5
+  min_item_interactions: 5
+  columns:
+    user_id: user_id
+    item_id: parent_asin
+    timestamp: timestamp
+    label: rating
+    title: title
+    category: categories
+    category_fallback: main_category
+    price: price
+    description: description
+    features: features
+
+llm:
+  enabled: ${AGENTREC_LLM_ENABLED:-true}
+  base_url: ${AGENTREC_LLM_BASE_URL:-http://127.0.0.1:8000/v1}
+  api_key: ${AGENTREC_LLM_API_KEY:-EMPTY}
+  model: ${AGENTREC_LLM_MODEL:-/data/Qwen/Qwen3.5-9B}
+  timeout_seconds: 60
+
+embedding:
+  provider: ${AGENTREC_EMBEDDING_PROVIDER:-sentence_transformers}
+  model_name_or_path: ${AGENTREC_EMBEDDING_MODEL:-/data/BAAI/bge-m3}
+  base_url: ${AGENTREC_EMBEDDING_BASE_URL:-http://127.0.0.1:8001/v1}
+  api_key: ${AGENTREC_EMBEDDING_API_KEY:-EMPTY}
+  batch_size: 16
+  max_length: 512
+  use_fp16: true
+  normalize: true
+
+api:
+  host: 0.0.0.0
+  port: 8080
+  allow_degraded_startup: true

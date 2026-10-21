@@ -1,0 +1,9 @@
+agent:
+  temperature: 0.1
+  retrieval_top_k: 300
+  semantic_top_k: 200
+  final_top_k: 10
+  strict_category: true
+  strict_max_price: true
+  explanation_max_items: 10
+  use_langgraph: true

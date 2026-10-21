@@ -1,0 +1,19 @@
+retriever:
+  embedding_dim: 128
+  hidden_dims: [256, 128]
+  batch_size: 1024
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  epochs: 20
+  negative_samples: 4
+  top_k: 300
+  patience: 3
+  num_workers: 4
+  collaborative_weight: 0.65
+  semantic_weight: 0.35
+  checkpoint: checkpoints/two_tower.pt
+  collaborative_embeddings: embeddings/collaborative.npy
+  collaborative_index: faiss/collaborative.faiss
+  semantic_embeddings: embeddings/semantic.npy
+  semantic_index: faiss/semantic.faiss
+  item_id_map: faiss/item_ids.json
