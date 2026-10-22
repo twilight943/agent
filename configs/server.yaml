@@ -1,5 +1,5 @@
-data_root: ${AGENTREC_DATA_ROOT:-./dataset}
-artifact_root: ${AGENTREC_ARTIFACT_ROOT:-/artifacts/agentrec}
+data_root: ${AGENTREC_DATA_ROOT:-/home/guosy2/agent_rec/dataset}
+artifact_root: ${AGENTREC_ARTIFACT_ROOT:-/home/guosy2/agent_rec/artifacts}
 device: ${AGENTREC_DEVICE:-cuda}
 seed: 42
 
@@ -23,7 +23,7 @@ data:
     features: features
 
 llm:
-  enabled: ${AGENTREC_LLM_ENABLED:-true}
+  enabled: ${AGENTREC_LLM_ENABLED:-false}
   base_url: ${AGENTREC_LLM_BASE_URL:-http://127.0.0.1:8000/v1}
   api_key: ${AGENTREC_LLM_API_KEY:-EMPTY}
   model: ${AGENTREC_LLM_MODEL:-/data/Qwen/Qwen3.5-4B}
