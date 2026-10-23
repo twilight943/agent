@@ -9,4 +9,8 @@ PORT="${AGENTREC_LLM_PORT:-8000}"
 exec vllm serve "$MODEL_PATH" \
   --served-model-name "$SERVED_MODEL_NAME" \
   --host "$HOST" \
-  --port "$PORT"
+  --port "$PORT" \
+  --language-model-only \
+  --dtype half \
+  --max-model-len 4096 \
+  --gpu-memory-utilization 0.55

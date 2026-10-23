@@ -23,7 +23,7 @@ data:
     features: features
 
 llm:
-  enabled: ${AGENTREC_LLM_ENABLED:-false}
+  enabled: ${AGENTREC_LLM_ENABLED:-True}
   base_url: ${AGENTREC_LLM_BASE_URL:-http://127.0.0.1:8000/v1}
   api_key: ${AGENTREC_LLM_API_KEY:-EMPTY}
   model: ${AGENTREC_LLM_MODEL:-/data/Qwen/Qwen3.5-4B}
